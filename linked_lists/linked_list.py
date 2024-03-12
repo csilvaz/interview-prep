@@ -20,3 +20,12 @@ class LinkedList:
         else: # If head is already pointing to another node
             new_node.next = self.head   # point the new node to the head pointer (i.e. the current head)
             self.head = new_node        # point the head to the new node
+    
+    # for testing purposes
+    def to_list(self):
+        elements = []
+        current = self.head
+        while current:
+            elements.append(current.data)
+            current = current.next
+        return elements
