@@ -16,6 +16,7 @@ class Node:
 class LinkedList:
     def __init__(self) -> None:
         self.head = None
+        self._size = 0
 
     ## Insertion (at beginning)
     ## Constant time operation O(1)
@@ -27,12 +28,13 @@ class LinkedList:
         if self.head is None: #i.e. if head is not pointing to anything
             # Just point head to the new node
             self.head = new_node
-            return
         else: # Otherwise...head IS pointing to another node
             ## 1. Point our new_node to the current first node
             new_node.next = self.head
             ## 2. Point the head to the new node
             self.head = new_node
+        self._size += 1
+            
 
 
     def to_list(self):
@@ -43,6 +45,8 @@ class LinkedList:
             current = current.next
         return elements
     
+    ## Scanning
+    ## O(n) -> Worst case we have to traverse the ENTIRE list to find our target
     def find(self, target):
         curr = self.head
         while curr:
@@ -50,4 +54,8 @@ class LinkedList:
                 return curr
             curr = curr.next
         return None 
+    
+    def size(self):
+        return self._size
+        
 

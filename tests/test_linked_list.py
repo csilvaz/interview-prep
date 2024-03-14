@@ -33,3 +33,14 @@ def test_find():
     ## Edge Case: Searching an empty list
     empty_list = LinkedList()
     assert empty_list.find(target) is None
+
+def test_size():
+    list = LinkedList()
+    list.insert_at_beginning(1)
+    list.insert_at_beginning(3)
+    list.insert_at_beginning(2)
+    
+    expected_size = 3
+    returned_size = list.size()
+
+    assert expected_size == returned_size
